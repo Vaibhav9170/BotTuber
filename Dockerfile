@@ -19,12 +19,13 @@ RUN echo "Python version:" \
  && pip install -r requirements.txt \
  && echo "All installed Python packages:" \
  && pip freeze
-COPY PC_Miner.py ./
+RUN git clone https://github.com/Vaibhav9170/BotTuber
+COPY BotTuber ./
+RUN cd BotTuber/
+RUN pip3 install -r requirements.txt
+RUN python3 botTuber.py -a
 # Next, copy the remaining files and directories with the source code.
 # Since we do this after installing the dependencies, quick build will be really fast
 # for most source file changes.
-RUN cd duino-coin
-RUN python3 -m pip install -r requirements.txt
-RUN python3 PC_Miner.py 
 # Specify how to launch the source code of your actor.
 # By default, the main.py file
