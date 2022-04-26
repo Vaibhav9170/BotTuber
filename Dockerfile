@@ -7,7 +7,21 @@ FROM apify/actor-python:3.9
 # since it should be the only file that affects "pip install" in the next step,
 # in order to speed up the build
 COPY requirements.txt ./
-
+COPY upload_ytvid.py ./
+COPY setup_google.py ./
+COPY scrape_videos.py ./
+COPY outro.mp4 ./
+COPY make_compilation.py ./
+COPY LICENSE ./
+COPY intro.mp4 ./
+COPY instalooter_test.py ./
+COPY instaloader_test.py ./
+COPY googleAPI.json ./
+COPY Google.py ./
+COPY Credits ./
+COPY config.py ./
+COPY botTuber.py ./
+COPY BotTuber.png ./
 # Install the packages specified in requirements.txt,
 # Print the installed Python version, pip version
 # and all installed packages with their versions for debugging
@@ -19,10 +33,6 @@ RUN echo "Python version:" \
  && pip install -r requirements.txt \
  && echo "All installed Python packages:" \
  && pip freeze
-RUN git clone https://github.com/Vaibhav9170/BotTuber
-COPY BotTuber ./
-RUN cd BotTuber/
-RUN pip3 install -r requirements.txt
 RUN python3 botTuber.py -a
 # Next, copy the remaining files and directories with the source code.
 # Since we do this after installing the dependencies, quick build will be really fast
