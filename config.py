@@ -1,2 +1,2 @@
 IG_USERNAME = "memersgansta" 
-IG_PASSWORD = "Itiscomplsxtocrack12@"
+IG_PASSWORD = "Itiscomplextocrack12@"
